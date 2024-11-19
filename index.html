@@ -1,0 +1,558 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evena.xyz</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/script.js" type="module">
+        </script>
+    <link href="css/style.css" rel="stylesheet">
+<style>
+    @font-face {
+    font-family: doto;
+    src: url(fonts/doto.ttf);
+    }
+    * {
+        font-family: doto;
+    box-sizing: border-box;
+    }
+    html, body {
+        height: 100%;
+        background: url(images/bg.gif) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    body {
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+    }
+
+    #myVideo {
+        object-fit: cover;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%; 
+        min-height: 100%;
+    }
+    .contentov {
+        position: relative;
+        bottom: 0px;
+        color: #f1f1f1;
+        width: 100%;
+        height: 100%;
+    }
+    .custom-nav:hover
+    {
+        color:rgb(29, 216, 138) !important;
+    }
+    .checked {
+        color: orange;
+    }
+    .modal-backdrop
+    {
+        position: unset !important;
+    }
+    .mousepointer:hover
+    {
+        cursor: pointer;
+        border: 1px solid rgb(29, 216, 138);
+        box-shadow: 2px 2px rgba(23, 27, 31, 0.2);
+    }
+    .mousepointerstar:hover
+    {
+        cursor: pointer;
+    }
+    .noBorder
+    {
+        border: none;
+    }
+    /* width */
+    ::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: #888; 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    }
+    .swal2-popup,.swal2-html-container {
+    font-size: 1rem !important;
+    font-family: Monospace;
+    }
+    .swal2-confirm,.swal2-cancel
+    {
+        font-family: Monospace;
+    }
+</style>
+</head>
+<body>
+    <!--<video autoplay muted loop id="myVideo">
+        <source src="image/bg.mp4" type="video/mp4">
+    </video>-->
+    <div class="contentov">
+        
+        <div style="padding-left:50px;padding-right:50px;background: rgba(0, 0, 0, 0.5);">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="#"><img src="images/logo.png" width="50" height="50" style="margin-top: 10px;" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav" href="#" style="color:white;">Home</a>
+                        </li>
+                        <!--<li class="nav-item custom-nav">
+                            <a class="nav-link custom-nav" href="#" style="color:white;">How to</a>
+                        </li>-->
+                        <li class="nav-item custom-nav">
+                            <a class="nav-link custom-nav" href="#" style="color:white;" onclick="window.location.href='https://discord.gg/84bSXwjvFM'">Discord</a>
+                        </li>
+                        <li class="nav-item custom-nav">
+                            <a class="nav-link custom-nav" href="#" style="color:white;" data-toggle="modal" data-target="#download">Download</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col-xl-12">
+                    <center>
+                        <div class="typing-container">
+                            <span id="sentence" class="sentence">Welcome To Evena.xyz,  --UNDETECTED--</span>
+                            <span id="feature-text"></span>
+                            <span class="input-cursor"></span>
+                        </div>
+                       
+                    </center>
+                </div>
+                
+                <div class="col-xl-12" style="padding: 50px;">
+                    <center>
+                        <div class="card mousepointer" data-toggle="modal" data-target="#exampleModalLong" style="width: 18rem;background-color: rgba(85, 174, 254, .1);">
+                            <img class="card-img-top" src="images/program.png" alt="Card image cap">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12"> <h5 class="card-title" style="color: white;font-size: 20px;font-family: Monospace;">Evena External</h5></div>
+                                    <div class="col-12"> <h5 class="card-title" style="color: #55aefe;font-size: 13px;font-family: Monospace;">$7.99 / Lifetime (Without Fees Included)</h5></div>
+                                    <div class="col-9"></div>
+                                    
+
+                                </div> 
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-9">
+                    <div class="typing-container">
+                        <span id="" class="">last Feedback (<font id="reviewnumber">0</font> Reviews)</span>
+                    </div>
+                    <div id="contentcardreview">
+                        <div class="card" id="cardreview" style="display:none;width: 100%;background-color: rgba(85, 174, 254, .1);margin-top: 5px;">
+                            <div class="card-body">
+                                <div class="container">
+                                    <div class="row">
+                                    <div class="col-9">
+                                        <span style="font-size: 15px;" id="__star_1" class="fa fa-star"></span>
+                                        <span style="font-size: 15px;" id="__star_2" class="fa fa-star"></span>
+                                        <span style="font-size: 15px;" id="__star_3" class="fa fa-star"></span>
+                                        <span style="font-size: 15px;" id="__star_4" class="fa fa-star"></span>
+                                        <span style="font-size: 15px;" id="__star_5" class="fa fa-star"></span>
+                                    </div>
+                                    <div class="col-3">
+                                        <h5 class="card-title" id="_datereview" style="color: white;font-size: 15px;font-family: Monospace;">15 Jan 2024</h5>
+                                    </div>
+                                    <div class="col-sm">
+                                        <h5 class="card-title" id="_messagereview" style="color: #55aefe;font-size: 13px;font-family: Monospace;">Review form system (Test from staff)</h5>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="left:0;bottom: 0;relative: absolute;width: 100%;">
+                <center>
+                    <h5 class="card-title"><font style="color: #55aefe;font-size: 13px;font-family: Monospace;font-weight: bold;">evenaxyz.shop</font><font style="color: white;font-size: 13px;font-family: Monospace;font-weight: bold;"> © 2024</font></h5>
+                </center>
+            </div>
+            �&nbsp;
+        </div>
+        
+
+        <!-- Modal -->
+        <div class="modal fade" id="review" tabindex="-1" role="dialog" aria-labelledby="reviewModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color: rgba(85, 174, 254, .9);">
+                <div class="modal-body noBorder">
+                    <input type="hidden" id="reviewhash">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h5 style="color: white;font-size: 20px;font-family: Monospace;font-weight: bold;">Review</h5>
+                    <textarea class="form-control" style="font-family: Monospace;" id="reviewmessage" rows="3"></textarea>
+                    <center>
+                        <span style="font-size: 15px;" id="star_1" onmouseover="processstart(1);" class="fa fa-star mousepointerstar"></span>
+                        <span style="font-size: 15px;" id="star_2" onmouseover="processstart(2);" class="fa fa-star mousepointerstar"></span>
+                        <span style="font-size: 15px;" id="star_3" onmouseover="processstart(3);" class="fa fa-star mousepointerstar"></span>
+                        <span style="font-size: 15px;" id="star_4" onmouseover="processstart(4);" class="fa fa-star mousepointerstar"></span>
+                        <span style="font-size: 15px;" id="star_5" onmouseover="processstart(5);" class="fa fa-star mousepointerstar"></span>
+                    </center>
+
+                    <button type="button" id="submitreview" style="margin-top:10px;width:100%;color: rgba(85, 174, 254, .9);font-size: 15px;font-family: Monospace;" class="btn btn-light">
+                        Submit
+                    </button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color: rgba(85, 174, 254, .9);">
+               
+                <div class="modal-body noBorder">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h5 style="color: white;font-size: 20px;font-family: Monospace;font-weight: bold;">Select Currency and Method payment
+
+                    <div style="background:white;padding:20px;color:black;border-radius:10px 10px;font-family: Monospace;">
+                       
+<p style="font-family: Monospace; font-size: 1.1em;">
+    <strong style="color: #007BFF; font-family: Monospace; font-size: 1.2em;">(Instant Delivery)</strong>
+</p>
+<p style="font-family: Monospace; font-size: 1.1em;">
+    <strong style="color: #FF5733; font-family: Monospace;">Please Read Before Purchase:</strong> After payment, the system will send the <strong style="color: #FF5733; font-family: Monospace;">License</strong> to the email you provided immediately. Please make sure to enter your email correctly. If you can't find it, please check your <strong style="color: #FF5733; font-family: Monospace;">Junk Mail</strong> or <strong style="color: #FF5733; font-family: Monospace;">Spam Mail</strong>.
+</p>
+
+                        <br>
+
+    <button data-dismiss="modal" data-sellsn-sid="231c055c-093c-4376-a8e2-1a26fa89e1c5" data-sellsn-pid="f13c5319-7e96-4631-b612-c1fda5dde391" type="button" style="margin-top:5px;width:100%;color:black;font-size: 15px;font-family: Monospace;" class="btn btn-warning">
+
+
+    PayPal
+                            <img style="border-radius: 5px;" src="images/paypal.png" width="35" height="30" alt="">
+
+
+                        </button>
+                    </div>
+
+
+                    <br>
+                    <div style="background:white;padding:20px;color:black;border-radius:10px 10px;font-family: Monospace;">
+                        (Thailand Only) .gg/evenaxyz <span style="color:blue; font-weight:bold;font-family: Monospace;">TrueMoneyWallet</span> หรือ <span style="color:blue; font-weight:bold;font-family: Monospace;">PromptPay</span>, กรุณาเข้าร่วม <span style="color:blue; font-weight:bold;font-family: Monospace;">Discord</span> และเปิด <span style="color:blue; font-weight:bold;font-family: Monospace;">Ticket TrueMoneyWallet/PromptPay</span> เพื่อชำระเงิน
+                        <br><br>
+                        <button data-dismiss="modal" onclick="window.location.href='https://discord.gg/84bSXwjvFM'" type="button" style="margin-top:5px;width:100%;color:black;font-size: 15px;font-family: Monospace;" class="btn btn-warning">
+                            TrueMoneyWallet/PromptPay
+                            <!--<img style="border-radius: 5px;" src="image/true.png" width="60" height="40" alt="">-->
+                            <img alt="icon" class="arrow-icon" src="images/truemoney-wallet.svg">
+                            <img alt="icon" class="arrow-icon" src="images/PromptPay.svg">
+                        </button>
+                    </div>
+                    <br>
+                    <div style="background:white;padding:20px;color:black;border-radius:10px 10px;font-family: Monospace;">
+                        For those paying with a <span style="color:blue; font-weight:bold;font-family: Monospace;">Credit Card</span>, please join our <span style="color:blue; font-weight:bold;font-family: Monospace;">Discord</span> and open a <span style="color:blue; font-weight:bold;font-family: Monospace;">Credit Card Ticket</span> to make your payment, and ping the <span style="color:blue; font-weight:bold;font-family: Monospace;">Admin</span> in the channel.
+                        <br><br>
+                        <button data-dismiss="modal" onclick="window.location.href='https://discord.gg/84bSXwjvFM'" type="button" style="margin-top:5px;width:100%;color:black;font-size: 15px;font-family: Monospace;" class="btn btn-warning">
+                            Credit Card
+                            <img alt="icon" class="arrow-icon" src="images/visa.svg">
+                        <img alt="icon" class="arrow-icon" src="images/mastercard.svg">
+                        <img alt="icon" class="arrow-icon" src="images/jcb.svg">
+                        <img alt="icon" class="arrow-icon" src="images/americanExpress.svg">
+                        </button>
+                    </div>
+
+                    <!--<div style="background:white;padding:20px;color:black;border-radius:10px 10px;font-family: Monospace;">
+                        For those who will pay with <span style="color:blue; font-weight:bold;font-family: Monospace;">CashApp</span> or <span style="color:blue; font-weight:bold;font-family: Monospace;">Apple Pay</span>, please contact <span style="color:blue; font-weight:bold;font-family: Monospace;">Reseller</span> on <span style="color:blue; font-weight:bold;font-family: Monospace;">Discord</span> or click the button to go to the reseller purchase page.
+                        <br><br>If there are any issues, please open a <span style="color:red; font-weight:bold;font-family: Monospace;">Ticket with reseller</span> on Discord.
+                        <br><br>
+
+                        <button data-dismiss="modal" onclick="window.location.href='https://wfa.sell.app/'" type="button" style="margin-top:5px;width:100%;color:black;font-size: 15px;font-family: Monospace;" class="btn btn-warning">
+                            CashApp or Apple Pay
+                            <img style="border-radius: 5px;" src="image/cash.png" width="35" height="30" alt="">
+                            <img style="border-radius: 5px;" src="image/apple.png" width="35" height="30" alt="">
+                        </button>
+                        
+                        
+                    </div>-->
+
+                    </h5>
+                    
+                    <!--<button type="button" style="margin-top:5px;width:100%;color: rgba(85, 174, 254, .9);font-size: 15px;font-family: Monospace;" class="btn btn-light">
+                        (Thailand only) Truemoney wallet (ติดต่อในดิส)
+                        <img style="background-color: white;border-radius: 5px;" src="image/true.png" width="100" height="45" alt="">
+                    </button>-->
+                    <!--<button type="button" onclick="window.location.href='https://discord.gg/FswdKATJEF'" style="margin-top:5px;width:100%;color: rgba(85, 174, 254, .9);font-size: 15px;font-family: Monospace;" class="btn btn-light">
+                        CashApp or Apple Pay Please contact Reseller on discord
+                        <img style="background-color: white;border-radius: 5px;" src="image/cash.png" width="35" height="30" alt="">
+                        <img style="background-color: white;border-radius: 5px;" src="image/apple.png" width="35" height="30" alt="">
+
+                    </button>-->
+                    <!--<h5  style="color: white;font-size: 17px;font-family: Monospace;">Note: Please use your email to receive your license key.
+                    
+                    
+                    <br><br>PromptPay(THB Only) method don't select Currency.<br><br>If not receive license key after pay you can contact Admin in discord (24/7).<br><br></h5>-->
+                    
+                    <!--<select id="Currency" style="font-family: Monospace;width: 100%;">
+                        <option style="font-family: Monospace;" value="none">Select Currency:</option>
+                        <option style="font-family: Monospace;" value="THB">THB</option>
+                        <option style="font-family: Monospace;" value="USD">USD</option>
+                    </select>
+                    <button type="button" id="ccardcreate" style="margin-top:5px;width:100%;color: rgba(85, 174, 254, .9);font-size: 15px;font-family: Monospace;" class="btn btn-light">
+                        CreditCard with 
+                        <img style="background-color: white;border-radius: 5px;" src="image/visa.png" width="35" height="30" alt="">
+                        <img style="background-color: white;border-radius: 5px;" src="image/mastercard.png" width="35" height="35" alt="">
+                    </button>
+                    <button type="button" id="ppcreate"style="margin-top:5px;width:100%;color: rgba(85, 174, 254, .9);font-size: 15px;font-family: Monospace;" class="btn btn-light">
+                        PromptPay
+                        <img style="background-color: white;border-radius: 5px;" src="image/PromptPay.png" width="70" height="35" alt="">
+                    </button>-->
+                    <!--<button type="button" onclick="window.location.href='https://funpay.com/en/lots/offer?id=27840815'" style="margin-top:5px;width:100%;color: rgba(85, 174, 254, .9);font-size: 15px;font-family: Monospace;" class="btn btn-light">
+                        
+                        <img style="background-color: white;border-radius: 5px;" src="image/funpay.png" width="70" height="25" alt="">
+                    </button>-->
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color: rgba(254, 195, 85, 0.9);">
+               
+                <div class="modal-body noBorder">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h5 style="color: white;font-size: 20px;font-family: Monospace;font-weight: bold;">Download Evena.xyz<br>Please enter license key.<!--<br>***Password File : <font style='color: red;font-size: 20px;font-family: Monospace;font-weight: bold;'>MatrixHub</font>--></h5>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="licensekeytodownload" placeholder="License key">
+                    </div>
+                    <button type="button" id="createdownload" style="margin-top:5px;width:100%;color: rgba(85, 174, 254, .9);font-size: 15px;font-family: Monospace;" class="btn btn-light">
+                        Download
+                    </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert2.js"></script>
+    <script type="text/javascript" src="js/embed.min.js"></script>
+    <script>
+        var currentstar = 0;
+        function processstart(id)
+        {
+            for(var i = 1;i<=5;i++)
+            {
+                $('#star_'+i).removeClass("checked");
+            }
+            for(var i = 1;i<=id;i++)
+            {
+                $('#star_'+i).addClass("checked");
+            }
+            currentstar = id;
+        }
+        const carouselText = [
+            {text: "The best Universal External for Roblox", color: "#55aefe"},
+        ]
+        carousel(carouselText, "#feature-text");
+        async function typeSentence(sentence, eleRef, delay = 50) {
+        const letters = sentence.split("");
+        let i = 0;
+        while(i < letters.length) {
+            await waitForMs(delay);
+            $(eleRef).append(letters[i]);
+            i++
+        }
+        return;
+        }
+
+        async function deleteSentence(eleRef) {
+        const sentence = $(eleRef).html();
+        const letters = sentence.split("");
+        let i = 0;
+        while(letters.length > 0) {
+            await waitForMs(30);
+            letters.pop();
+            $(eleRef).html(letters.join(""));
+        }
+        }
+
+        async function carousel(carouselList, eleRef) {
+            var i = 0;
+            while(true) {
+            updateFontColor(eleRef, carouselList[i].color)
+            await typeSentence(carouselList[i].text, eleRef);
+            await waitForMs(1500);
+            await deleteSentence(eleRef);
+            await waitForMs(500);
+            i++
+            if(i >= carouselList.length) {i = 0;}
+            }
+        }
+
+        function updateFontColor(eleRef, color) {
+            $(eleRef).css('color', color);
+        }
+
+        function waitForMs(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+        $(document).ready(function(){
+
+            
+            $("#createdownload").button().click(function(){
+
+                $.get("api/download.php?licensekey="+$('#licensekeytodownload').val(), function(data, status){
+                    const objData = JSON.parse(data);
+                    //if(objData['success'])
+                    //console.log(objData);
+
+                    location.replace(objData['success']); 
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Thanks for use Matrix Hub."
+                    });
+                    //windows.location.href = objData['success'];
+                    //alert("Data: " + data + "\nStatus: " + status);
+                }).fail(function(data) {
+                    const obj = JSON.parse(data.responseText);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: obj['error']
+                    });
+                });
+ 
+            }); 
+
+            $.get("getreview.php", function(data, status){
+                const obj = JSON.parse(data);
+                for(var i = 0;i<obj.length;i++)
+                {
+                    const objData = JSON.parse(obj[i]['reviews']);
+                    var cloneEle = $('#cardreview').clone();
+                   // cloneEle.find('#_datereview').html('test');
+
+                    for(var j = 1;j<=objData['star'];j++)
+                    {
+                        cloneEle.find('#__star_'+j).addClass("checked");
+                    }
+                    //__star_1
+                    cloneEle.find('#_datereview').html(objData['date']);
+                    cloneEle.find('#_messagereview').html(objData['message']); 
+
+                    cloneEle.appendTo('#contentcardreview').show();
+                    //appendTo('#contentcardreview').show();
+                    //console.log(objData);
+                    //alert("Data: " + data + "\nStatus: " + status);
+                }
+
+                $('#reviewnumber').html(obj.length);
+            });
+ 
+
+            const stripe = Stripe('pk_live_51OVeiNAXNzgbsQ6yvMirANrwXdJ20PCPaMIr8LqG2lL9aj1Uk4ACUZVZQeP1Wtod8483TqaRpamDHgXH8EH3efK900DVHu4Asc');
+            $("#ppcreate").button().click(function(){
+                $.get("create_pp.php", function(data, status){
+                    const obj = JSON.parse(data);
+                    Swal.fire({
+                        icon: "warning",
+                        text: "Do you want to pay now?",
+                        showCancelButton: true,
+                        confirmButtonText: "Let's go",
+                        denyButtonText: 'No'
+                    }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        stripe.redirectToCheckout({
+                            sessionId: obj['success'],
+                        });
+                    } else if (result.isDenied) {
+                    }
+                    });
+                    //alert("Data: " + data + "\nStatus: " + status);
+                }).fail(function(data) {
+                    const obj = JSON.parse(data.responseText);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: obj['error']
+                    });
+                });
+ 
+            }); 
+
+            
+            $("#submitreview").button().click(function(){
+                $.get("review.php?hashid="+$('#reviewhash').val()+'&star='+currentstar+'&message='+$('#reviewmessage').val(), function(data, status,xhr){
+                    $('#review').modal('hide');
+                    //alert(data);
+                    Swal.fire({
+                    icon: "success",
+                    confirmButtonText: "OK",
+                    html: "Thank for review."
+                    });
+                });
+            }); 
+            $("#ccardcreate").button().click(function(){
+                $.get("create_ccard.php?typecurrentcy="+$("#Currency").val(), function(data, status,xhr){
+                    const obj = JSON.parse(data);
+                    Swal.fire({
+                        icon: "warning",
+                        text: "Do you want to pay now?",
+                        showCancelButton: true,
+                        confirmButtonText: "Let's go",
+                        denyButtonText: 'No'
+                    }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        stripe.redirectToCheckout({
+                            sessionId: obj['success'],
+                        });
+                    } else if (result.isDenied) {
+                    }
+                    });
+                }).fail(function(data) {
+                    const obj = JSON.parse(data.responseText);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: obj['error']
+                    });
+                });
+            }); 
+            
+                    });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8e4c52ef8ca9663d',t:'MTczMTk3ODY2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
+</body></html>
